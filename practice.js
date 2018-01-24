@@ -90,7 +90,12 @@ multiply(4, 3, function(answer){
 */
 
 let contains = function(arr,name,cb){
-  if (name){}
+  if (arr.includes(name)){
+    cb(true)
+  }
+  else{
+    cb(false)
+  }
 }
 
 // Do not edit the code below.
@@ -112,17 +117,9 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-function myFunction(myArray, callBack){
-
-  var unique = myArray.filter(function(item, pos) {
-
-    return myArray.indexOf(item) == pos;
-  });
- 
- 
-  callBack(unique);
- 
- }
+let uniq = function(arr,cb){
+  con
+}
 // Do not edit the code below.
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -139,7 +136,11 @@ uniq(names, function(uniqArr){
 */
 
 function each(arr,cb){
-
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i]=== name){
+      cb(arr[i])
+    }
+  }
 }
 
 // Do not edit the code below.
@@ -158,9 +159,9 @@ each(names, function(item, indice){
 */
 
 function getUserById(user,id,cb){
-  for( let key in user){
-    if(user[key]===id){
-      return cb(user);
+  for( let i = 0;i < user.length;i++){
+    if(user[i]===id){
+      cb(user[i]);
     }
   }
 };
