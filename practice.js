@@ -117,8 +117,14 @@ contains(names, 'Colt', function(result){
   Remove any duplicate values from the array, and invoke the callback with the modified array as an argument.
 */
 
-let uniq = function(arr,cb){
-  con
+function uniq(arr,cb){
+  for(let i = 0;i<arr.length;i++){
+    if(arr.lastIndexOf(arr[i]) > i){
+      arr.splice(arr.lastIndexOf(arr[i]),1)
+      i--
+    }
+  }
+  return cb(arr);
 }
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -137,11 +143,11 @@ uniq(names, function(uniqArr){
 
 function each(arr,cb){
   for (let i = 0; i < arr.length; i++){
-    if (arr[i]=== name){
-      cb(arr[i])
+    
+      cb(arr[i],arr.indexOf(i))
     }
   }
-}
+
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -160,7 +166,7 @@ each(names, function(item, indice){
 
 function getUserById(user,id,cb){
   for( let i = 0;i < user.length;i++){
-    if(user[i]===id){
+    if(user[i]["id"]===id){
       cb(user[i]);
     }
   }
